@@ -1,12 +1,16 @@
 // backend/server.js
 
 const express = require("express");
+const productsRoute = require("./routes/products");
 
 const app = express();
 
-// تست ساده برای اینکه ببینیم سرور زنده است
+// این خط می‌گه وقتی آدرس /products اومد، برو routes/products.js
+app.use("/products", productsRoute);
+
+// تست زنده بودن سرور
 app.get("/", (req, res) => {
   res.send("Digikala clone backend is alive 🚀");
 });
 
-// فعلاً سرور رو اجرا نمی‌کنیم، فقط اسکلت می‌سازیم
+// هنوز اجرا نمی‌کنیم؛ فقط ساختار
