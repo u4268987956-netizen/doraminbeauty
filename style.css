@@ -94,3 +94,34 @@ footer {
   padding: 30px;
   color: #999;
 }
+
+.cart-box {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-row strong {
+  font-weight: 500;
+}
+
+.qty {
+  color: #888;
+  margin-right: 8px;
+}
+
+.remove-btn {
+  margin-right: 15px;
+  background: none;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 13px;
+}
