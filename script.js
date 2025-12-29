@@ -1,4 +1,3 @@
-// ---------- Cart Core ----------
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
 }
@@ -8,15 +7,13 @@ function saveCart(cart) {
   updateCartCount();
 }
 
-// ---------- Header Count ----------
 function updateCartCount() {
   const cart = getCart();
-  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  const count = cart.reduce((s, i) => s + i.qty, 0);
   const el = document.getElementById("cart-count");
   if (el) el.innerText = count;
 }
 
-// ---------- Add ----------
 function addToCart(btn) {
   const product = btn.closest(".product");
   const name = product.dataset.name;
@@ -25,46 +22,47 @@ function addToCart(btn) {
   let cart = getCart();
   let item = cart.find(p => p.name === name);
 
-  if (item) {
-    item.qty += 1;
-  } else {
-    cart.push({ name, price, qty: 1 });
-  }
+  if (item) item.qty++;
+  else cart.push({ name, price, qty: 1 });
 
   saveCart(cart);
 }
 
-// ---------- Remove ----------
-function removeItem(index) {
+function changeQty(index, delta) {
   let cart = getCart();
-  cart.splice(index, 1);
+  cart[index].qty += delta;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+
   saveCart(cart);
   renderCart();
 }
 
-// ---------- Render Cart ----------
 function renderCart() {
-  const container = document.getElementById("cart-items");
+  const box = document.getElementById("cart-items");
   const totalEl = document.getElementById("total");
+  if (!box) return;
 
-  if (!container) return;
-
-  const cart = getCart();
-  container.innerHTML = "";
+  let cart = getCart();
+  box.innerHTML = "";
   let total = 0;
 
-  cart.forEach((item, index) => {
+  cart.forEach((item, i) => {
     total += item.price * item.qty;
-
-    container.innerHTML += `
+    box.innerHTML += `
       <div class="cart-row">
         <div>
           <strong>${item.name}</strong>
-          <span class="qty">× ${item.qty}</span>
+        </div>
+        <div class="qty-controls">
+          <button onclick="changeQty(${i},-1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="changeQty(${i},1)">+</button>
         </div>
         <div>
-          <span>${(item.price * item.qty).toLocaleString()} تومان</span>
-          <button class="remove-btn" onclick="removeItem(${index})">حذف</button>
+          ${(item.price * item.qty).toLocaleString()} تومان
         </div>
       </div>
     `;
@@ -73,6 +71,5 @@ function renderCart() {
   totalEl.innerText = "جمع کل: " + total.toLocaleString() + " تومان";
 }
 
-// ---------- Init ----------
 updateCartCount();
 renderCart();
