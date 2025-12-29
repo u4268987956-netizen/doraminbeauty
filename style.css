@@ -140,3 +140,18 @@ footer {
   background: #fff;
   cursor: pointer;
 }
+.checkout {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.checkout input,
+.checkout textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+}
