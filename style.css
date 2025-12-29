@@ -9,7 +9,6 @@ body {
   color: #222;
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -23,28 +22,20 @@ nav a {
   color: #333;
 }
 
-/* Hero */
+.cart-link span {
+  background: #c07a85;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
 .hero {
   text-align: center;
   padding: 100px 20px;
   background: linear-gradient(135deg,#fdeef2,#fff);
 }
 
-.hero h1 {
-  font-size: 42px;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 30px;
-  background: #c07a85;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-}
-
-/* Products */
 .products {
   padding: 80px 60px;
   display: grid;
@@ -57,6 +48,12 @@ nav a {
   border-radius: 20px;
   padding: 20px;
   text-align: center;
+  transition: 0.3s;
+}
+
+.product:hover {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transform: translateY(-5px);
 }
 
 .product img {
@@ -66,16 +63,15 @@ nav a {
 
 .product button {
   margin-top: 15px;
-  padding: 10px;
+  padding: 12px;
   width: 100%;
   background: #c07a85;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
 }
 
-/* Cart */
 .cart {
   padding: 60px;
 }
@@ -86,7 +82,13 @@ nav a {
   margin-bottom: 15px;
 }
 
-/* Footer */
+.cart-item button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+
 footer {
   text-align: center;
   padding: 30px;
