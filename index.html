@@ -2,63 +2,53 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>فروشگاه لوازم آرایشی</title>
+  <title>Beauty Shop</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="header">
-  <div class="logo">BeautyStore</div>
+  <div class="logo">BeautyShop</div>
   <nav>
-    <a href="#">خانه</a>
-    <a href="#">محصولات</a>
-    <a href="#">درباره ما</a>
-    <a href="#">تماس</a>
+    <a href="index.html">خانه</a>
+    <a href="#products">محصولات</a>
+    <a href="cart.html">🛒 سبد خرید</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>زیبایی طبیعی، انتخاب حرفه‌ای</h1>
-    <p>منتخب بهترین برندهای آرایشی و مراقبتی</p>
-    <button class="primary-btn">مشاهده محصولات</button>
-  </div>
-  <div class="hero-img">
-    <img src="images/hero.jpg">
-  </div>
+  <h1>زیبایی، انتخاب حرفه‌ای</h1>
+  <p>فروش آنلاین لوازم آرایشی اورجینال</p>
+  <a href="#products" class="btn">خرید کن</a>
 </section>
 
-<section class="section">
-  <h2 class="section-title">محصولات پرفروش</h2>
+<section id="products" class="products">
+  <div class="product" data-name="رژ لب مات" data-price="250000">
+    <img src="images/lipstick.jpg">
+    <h3>رژ لب مات</h3>
+    <span>۲۵۰,۰۰۰ تومان</span>
+    <button onclick="addToCart(this)">افزودن به سبد</button>
+  </div>
 
-  <div class="products">
-    <div class="product-card">
-      <img src="images/lipstick.jpg">
-      <h3>رژ لب مات</h3>
-      <span>۲۵۰,۰۰۰ تومان</span>
-    </div>
+  <div class="product" data-name="کرم آبرسان" data-price="320000">
+    <img src="images/cream.jpg">
+    <h3>کرم آبرسان</h3>
+    <span>۳۲۰,۰۰۰ تومان</span>
+    <button onclick="addToCart(this)">افزودن به سبد</button>
+  </div>
 
-    <div class="product-card">
-      <img src="images/cream.jpg">
-      <h3>کرم آبرسان</h3>
-      <span>۳۲۰,۰۰۰ تومان</span>
-    </div>
-
-    <div class="product-card">
-      <img src="images/perfume.jpg">
-      <h3>عطر زنانه</h3>
-      <span>۸۵۰,۰۰۰ تومان</span>
-    </div>
+  <div class="product" data-name="عطر زنانه" data-price="850000">
+    <img src="images/perfume.jpg">
+    <h3>عطر زنانه</h3>
+    <span>۸۵۰,۰۰۰ تومان</span>
+    <button onclick="addToCart(this)">افزودن به سبد</button>
   </div>
 </section>
 
-<section class="banner">
-  <h2>ارسال سریع | ضمانت اصالت | پشتیبانی</h2>
-</section>
-
-<footer class="footer">
-  <p>© 2025 BeautyStore</p>
+<footer>
+  © 2025 BeautyShop
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
