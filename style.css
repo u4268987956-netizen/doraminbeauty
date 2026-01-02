@@ -1,157 +1,171 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap');
-
-* { box-sizing: border-box; }
-
+/* استایل کلی */
 body {
   margin: 0;
-  font-family: Vazirmatn, sans-serif;
-  background: #fff;
-  color: #222;
+  font-family: "Tahoma", sans-serif;
+  background: #111;   /* مشکی مات */
+  color: #eee;        /* نوشته‌ها روشن‌تر برای خوانایی */
+  direction: rtl;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 60px;
-  border-bottom: 1px solid #eee;
-}
 
-nav a {
-  margin-right: 20px;
-  text-decoration: none;
-  color: #333;
-}
-
-.cart-link span {
-  background: #c07a85;
-  color: white;
-  padding: 2px 8px;
-  border-radius: 20px;
-  font-size: 12px;
-}
-
-.hero {
+/* هدر */
+.site-header {
+  background: linear-gradient(90deg, #000, #b8860b); /* مشکی–طلایی */
+  padding: 8px 0; /* ارتفاع باریک‌تر */
   text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg,#fdeef2,#fff);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* کانتینر داخلی هدر */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* لوگو */
+.logo {
+  height: 70px !important;  /* جمع‌وجورتر */
+  width: auto !important;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* بخش محصولات */
+.container {
+  padding: 40px 20px;
 }
 
 .products {
-  padding: 80px 60px;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
+  justify-items: center;
 }
 
-.product {
-  border: 1px solid #eee;
-  border-radius: 20px;
+.product-card {
+  background: #1a1a1a;  /* خاکستری خیلی تیره */
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #eee;          /* متن روشن */
+  max-width: 240px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.card-img img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  margin: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.price {
+  margin: 0 12px 15px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #e60023;
+}
+
+/* فوتر */
+footer {
+  margin-top: 50px;
   padding: 20px;
   text-align: center;
-  transition: 0.3s;
-}
-
-.product:hover {
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-  transform: translateY(-5px);
-}
-
-.product img {
-  width: 100%;
-  border-radius: 14px;
-}
-
-.product button {
-  margin-top: 15px;
-  padding: 12px;
-  width: 100%;
-  background: #c07a85;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.cart {
-  padding: 60px;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.cart-item button {
-  background: none;
-  border: none;
-  color: red;
-  cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #999;
-}
-
-.cart-box {
-  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
   border-top: 1px solid #eee;
 }
 
-.cart-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0;
-  border-bottom: 1px solid #f0f0f0;
+/* ✅ اصلاح لوگو */
+.logo {
+  height: 70px !important;
+  width: auto !important;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
-
-.cart-row strong {
-  font-weight: 500;
-}
-
-.qty {
-  color: #888;
-  margin-right: 8px;
-}
-
-.remove-btn {
-  margin-right: 15px;
-  background: none;
-  border: none;
-  color: #c0392b;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.qty-controls {
-  display: flex;
+.whatsapp-btn {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-}
-
-.qty-controls button {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid #ccc;
-  background: #fff;
+  padding: 12px 22px;
+  margin-top: 20px;
+  background: #25d366;          /* رنگ واتساپ */
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
   cursor: pointer;
-}
-.checkout {
-  max-width: 500px;
-  margin: 60px auto;
-  padding: 20px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
 }
 
-.checkout input,
-.checkout textarea {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-family: inherit;
+.whatsapp-btn:hover {
+  background: #20b358;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.5);
+  transform: translateY(-2px);
 }
+
+/* 🔸 دکمه‌های شبکه اجتماعی (واتساپ و اینستاگرام) */
+.social-btn {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.social-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* واتساپ */
+.social-btn.whatsapp {
+  background: linear-gradient(135deg, #25D366, #1EBE57);
+  bottom: 20px;
+  right: 20px;
+}
+
+/* اینستاگرام */
+.social-btn.instagram {
+  background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF);
+  bottom: 90px; /* فاصله بالاتر از واتساپ */
+  right: 20px;
+}
+
+/* حالت تاریک هماهنگ */
+body.dark .social-btn {
+  box-shadow: 0 4px 12px rgba(255,255,255,0.15);
+}
+
