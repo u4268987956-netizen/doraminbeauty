@@ -1,315 +1,220 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>رامیرا — فروشگاه</title>
-  <link rel="stylesheet" href="style.css">
+  <title>کت مدل NICE | رامیرا</title>
+
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/dist/font-face.css" rel="stylesheet">
+
   <style>
-    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Farsi-Digits/Vazirmatn-FD-font-face.css');
-
-    :root {
-      --bg-color: #fafafa;
-      --text-color: #222;
-      --card-bg: #fff;
-      --card-shadow: rgba(0, 0, 0, 0.05);
-      --price-color: #d63384;
-      --footer-bg: linear-gradient(90deg, #f8f9fa, #f1f3f5);
-    }
-
-    body.dark {
-      --bg-color: #1a1a1a;
-      --text-color: #f1f1f1;
-      --card-bg: #2a2a2a;
-      --card-shadow: rgba(255, 255, 255, 0.05);
-      --price-color: #ff91b2;
-      --footer-bg: linear-gradient(90deg, #222, #2a2a2a);
-    }
-
     body {
       margin: 0;
-      font-family: 'Vazirmatn FD', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      direction: rtl;
-      transition: background 0.3s ease, color 0.3s ease;
+      font-family: Vazirmatn, sans-serif;
+      background: #fafafa;
+      color: #222;
     }
 
-    header.site-header {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      transition: background 0.3s ease;
-    }
-
-    body.dark header.site-header {
-      background: rgba(26, 26, 26, 0.8);
-      border-bottom: 1px solid #333;
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
+    .site-header {
+      background: #fafafa;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      text-align: center;
     }
 
     .logo {
-      width: 150px;
-      transition: transform 0.3s ease;
+      height: 70px;
     }
 
-    .logo:hover {
-      transform: scale(1.05);
-    }
-
-    .theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--text-color);
-      transition: transform 0.2s ease;
-    }
-
-    .theme-toggle:hover {
-      transform: scale(1.1);
-    }
-
-    .container {
+    .product-detail {
       max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .product-card {
-      text-decoration: none;
-      color: inherit;
-      background: var(--card-bg);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px var(--card-shadow);
-      transition: all 0.3s ease;
+      margin: 40px auto;
+      padding: 0 20px;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
     }
 
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 16px var(--card-shadow);
+    .slideshow {
+      position: relative;
+      max-width: 450px;
+      flex: 1;
+      cursor: pointer;
     }
 
-    .card-img img {
+    .slides {
+      display: none;
       width: 100%;
-      height: 300px;
-      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
 
-    .product-card h3 {
-      font-size: 1.1rem;
-      margin: 0.8rem 1rem 0 1rem;
-      text-align: center;
-      color: var(--text-color);
+    .slides.active {
+      display: block;
+    }
+
+    .desc {
+      flex: 1;
+    }
+
+    .desc h2 {
+      margin-top: 0;
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .desc p {
+      line-height: 1.9;
+      color: #555;
+      font-size: 16px;
     }
 
     .price {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #e60023;
+    }
+
+    .order-box {
+      margin-top: 25px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
       text-align: center;
-      margin: 0.5rem 0 1rem;
-      color: var(--price-color);
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 17px;
       font-weight: bold;
     }
 
-    footer {
-      background: var(--footer-bg);
-      text-align: center;
-      padding: 1.2rem;
-      color: var(--text-color);
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
-      margin-top: 3rem;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    @media (max-width: 600px) {
-      .card-img img {
-        height: 220px;
+    @media (max-width: 768px) {
+      .product-detail {
+        flex-direction: column;
+        text-align: center;
       }
     }
-    /* 🔸 دکمه‌های شبکه اجتماعی (واتساپ و اینستاگرام) */
-.social-btn {
-  position: fixed;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  z-index: 999;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  backdrop-filter: blur(8px);
-}
 
-.social-btn img {
-  width: 30px;
-  height: 30px;
-}
-
-.social-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-/* واتساپ */
-.social-btn.whatsapp {
-  background: linear-gradient(135deg, #25D366, #1EBE57);
-  bottom: 20px;
-  right: 20px;
-}
-
-/* اینستاگرام */
-.social-btn.instagram {
-  background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF);
-  bottom: 90px; /* فاصله بالاتر از واتساپ */
-  right: 20px;
-}
-
-/* حالت تاریک هماهنگ */
-body.dark .social-btn {
-  box-shadow: 0 4px 12px rgba(255,255,255,0.15);
-}
-
-  </style>
-</head>
-<body>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <img src="https://raw.githubusercontent.com/orgmohammad/ramira/3173bad7a45378534ce74cd5603111356bd5ee39/ChatGPT%20Image%20Sep%2021%2C%202025%2C%2006_16_32%20AM.png" alt="لوگو راميرا" class="logo">
-      <button class="theme-toggle" id="theme-toggle" title="تغییر حالت">🌙</button>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="products">
-      
-      <a href="product9.html" class="product-card">
-        <div class="card-img">
-          <img src="https://github.com/orgmohammad/ramira/raw/65eb51111cbfc4a9c06c529f9156086839523733/photo_2025-11-30_10-45-41.jpg
-" alt="کت مدل MEDUSA">
-        </div>
-        <h3>کت مدل MEDUSA </h3>
-        <p class="price">۱٬۹۹۰٬۰۰۰ تومان</p>
-      </a>
-      
-            <a href="product8.html" class="product-card">
-        <div class="card-img">
-          <img src="https://raw.githubusercontent.com/orgmohammad/ramira/910fcda864f50c25f9e3bbc8c3ca05561a746d6f/photo_2025-11-28_14-32-18.jpg" alt="کت مدل NICE">
-        </div>
-        <h3>کت مدل NICE</h3>
-        <p class="price">۱٬۹۹۰٬۰۰۰ تومان</p>
-      </a>
-      
-      <a href="product1.html" class="product-card">
-        <div class="card-img">
-          <img src="https://github.com/orgmohammad/ramira/raw/main/photo_2025-09-19_18-10-36.jpg" alt="ژیله مدل سرمه">
-        </div>
-        <h3>ژیله مدل سرمه</h3>
-        <p class="price">۱,۶۸۰,۰۰۰ تومان</p>
-      </a>
-
-      <a href="product2.html" class="product-card">
-        <div class="card-img">
-          <img src="https://github.com/orgmohammad/ramira/raw/main/photo_2025-09-19_18-11-37.jpg" alt="ژیله مدل دوک">
-        </div>
-        <h3>ژیله مدل دوک</h3>
-        <p class="price">۱,۴۹۰,۰۰۰ تومان</p>
-      </a>
-
-      <a href="product3.html" class="product-card">
-        <div class="card-img">
-          <img src="https://github.com/orgmohammad/ramira/raw/main/photo_2025-09-19_18-12-37.jpg" alt="ژیله مدل پانیذ">
-        </div>
-        <h3>ژیله مدل پانیذ</h3>
-        <p class="price">۱,۸۹۸,۰۰۰ تومان</p>
-      </a>
-
-      <a href="product4.html" class="product-card">
-        <div class="card-img">
-          <img src="https://raw.githubusercontent.com/orgmohammad/ramira/3f32023c507d430a2f147af65182ebb14a671549/photo_2025-09-20_17-15-43.jpg" alt="ژیله مدل حریر">
-        </div>
-        <h3>ژیله مدل حریر</h3>
-        <p class="price">۱,۷۹۹,۰۰۰ تومان</p>
-      </a>
-
-      <a href="product5.html" class="product-card">
-        <div class="card-img">
-          <img src="https://raw.githubusercontent.com/orgmohammad/ramira/ff5edd491036082d65743e52ed53b61a781761be/photo_2025-09-20_17-43-29.jpg" alt="شومیز مدل دانتل">
-        </div>
-        <h3>شومیز مدل دانتل</h3>
-        <p class="price">۱,۴۹۹,۰۰۰ تومان</p>
-      </a>
-
-      <a href="product6.html" class="product-card">
-        <div class="card-img">
-          <img src="https://raw.githubusercontent.com/orgmohammad/ramira/9bdca5211f868021ed0c71c0169b74bc911cbf01/photo_2025-09-21_15-26-32.jpg" alt="کت مدل طناز">
-        </div>
-        <h3>کت مدل طناز</h3>
-        <p class="price">۲,۲۹۸,۰۰۰ تومان</p>
-      </a>
-
-      <a href="product7.html" class="product-card">
-        <div class="card-img">
-          <img src="https://raw.githubusercontent.com/orgmohammad/ramira/2c3f6c13e54e61889de30f088d12985084b945fc/photo_2025-10-02_19-39-42.jpg" alt="کت مدل افسون">
-        </div>
-        <h3>کت مدل افسون</h3>
-        <p class="price">۲,۲۹۸,۰۰۰ تومان</p>
-      </a>
-    </div>
-  </main>
-
-  <footer>
-    <p>© 2025 رامیرا — طراحی شده توسط orgmohmd 💖</p>
-  </footer>
-
-  <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    // بررسی ذخیره حالت در localStorage
-    if (localStorage.getItem('theme') === 'dark') {
-      body.classList.add('dark');
-      toggleBtn.textContent = '☀️';
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
     }
 
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      const isDark = body.classList.contains('dark');
-      toggleBtn.textContent = isDark ? '☀️' : '🌙';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
-  </script>
-<!-- 🔗 دکمه‌های واتساپ و اینستاگرام -->
-<a href="https://wa.me/989120653481" class="social-btn whatsapp" target="_blank" title="گفت‌وگو در واتساپ">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساپ">
-</a>
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
 
-<a href="https://www.instagram.com/ramira.mode" class="social-btn instagram" target="_blank" title="صفحه اینستاگرام رامیرا">
-  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="اینستاگرام">
-</a>
+    .lightbox span {
+      position: absolute;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    .close { top: 20px; right: 30px; }
+    .prev { left: 30px; }
+    .next { right: 30px; }
+
+    footer {
+      text-align: center;
+      padding: 25px 0;
+      background: #fff;
+      color: #666;
+      font-size: 14px;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <img class="logo" src="https://raw.githubusercontent.com/orgmohammad/ramira/3173bad7a45378534ce74cd5603111356bd5ee39/ChatGPT%20Image%20Sep%2021%2C%202025%2C%2006_16_32%20AM.png" alt="لوگو رامیرا">
+</header>
+
+<main class="product-detail">
+
+  <div class="slideshow">
+    <img class="slides active" src="https://github.com/orgmohammad/ramira/raw/65eb51111cbfc4a9c06c529f9156086839523733/photo_2025-11-30_10-45-41.jpg">
+    <img class="slides" src="https://github.com/orgmohammad/ramira/raw/65eb51111cbfc4a9c06c529f9156086839523733/photo_2025-11-30_10-45-45.jpg">
+  </div>
+
+  <div class="desc">
+    <h2>کت مدل NICE</h2>
+    <p>
+      قد حدود ۸۰ سانتی‌متر  
+      تک‌دوزی، طراحی خاص و محدود  
+      مناسب استایل‌های خاص و شیک
+    </p>
+
+    <p class="price">۱٬۹۹۰٬۰۰۰ تومان</p>
+
+    <div class="order-box">
+      <p>ثبت سفارش از طریق واتساپ</p>
+      <a class="whatsapp-btn" href="https://wa.me/989120653481" target="_blank">
+        ثبت سفارش
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>
+  <img id="lightbox-img">
+  <span class="next">&#10095;</span>
+</div>
+
+<footer>© ۲۰۲۵ رامیرا</footer>
+
+<script>
+  const slides = document.querySelectorAll(".slides");
+  let index = 0;
+
+  setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 3000);
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  slides.forEach((img, i) => {
+    img.onclick = () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+      index = i;
+    };
+  });
+
+  document.querySelector(".close").onclick = () => lightbox.style.display = "none";
+  document.querySelector(".prev").onclick = () => {
+    index = (index - 1 + slides.length) % slides.length;
+    lightboxImg.src = slides[index].src;
+  };
+  document.querySelector(".next").onclick = () => {
+    index = (index + 1) % slides.length;
+    lightboxImg.src = slides[index].src;
+  };
+</script>
 
 </body>
 </html>
